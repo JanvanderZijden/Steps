@@ -1,15 +1,24 @@
 import time
 import pygame
 import sys
+import os
 import openpyxl
 
-schema = openpyxl.load_workbook("/home/pi/usbdrv/Oefendata/Oefenschema Steps.xlsx")
-oefenschema = schema.get_sheet_by_name("Oefenschema")
+#schema = openpyxl.load_workbook("/home/pi/usbdrv/Oefendata/Oefenschema Steps.xlsx")
+#oefenschema = schema.get_sheet_by_name("Oefenschema")
 
-datalogger = openpyxl.Workbook()
+if os.path.isfile("/home/pi/usbdrv/Datalogger Excel Steps.xlsx"):
+        datalogger = open("/home/pi/usbdrv/Datalogger Excel Steps.xlsx")
+else:
+        datalogger = openpyxl.Workbook()
+
+
 dataloggerSheet = datalogger.active
 dataloggerSheet.title = "Data"
-dataloggerSheet.cell(row=2, column=2).value = "10 uur"
+dataloggerSheet.cell(row=2, column=2).value = "14 uur"
+
+print datalogger
+
 datalogger.save("/home/pi/usbdrv/Oefendata/Datalogger Excel Steps.xlsx")
 
 pygame.init()
