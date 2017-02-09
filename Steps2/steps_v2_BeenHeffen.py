@@ -81,7 +81,7 @@ voorbeeld2 = pygame.transform.smoothscale(voorbeeld2, (int(screen_w/100)*14, int
 voorbeeld = voorbeeld2
 voorbeeldPosRechts = (screen_w - voorbeeld1.get_width(),0)
 voorbeeldPosLinks = (0,0)
-voorbeeldPos = voorbeeldPosRechts
+voorbeeldPos = voorbeeldPosLinks
 screen.blit(voorbeeld, voorbeeldPos)
 
 #audio
@@ -115,7 +115,6 @@ while True:
                                 voorbeeld = voorbeeld1
                                 screen.fill(black)
                                 screen.blit(photo, (screen_w/2 - photo.get_width()/2, screen_h/2 - photo.get_height()/2))
-                                voorbeeldPos = voorbeeldPosLinks
                                 screen.blit(voorbeeld, voorbeeldPos)
                                 screen.blit(uitvoeringText, (screen_w-uitvoeringText.get_width() ,screen_h-(screen_h/22)-uitvoeringText.get_height()))
                                 pygame.display.update()
@@ -144,8 +143,10 @@ while True:
                                         aantal_keer_een_been = 0
                                         if(staand_op_been == "Rechts"):
                                                 staand_op_been = "Links"
+                                                voorbeeldPos = voorbeeldPosRechts
                                         elif(staand_op_been == "Links"):
                                                 staand_op_been = "Rechts"
+                                                voorbeeldPos = voorbeeldPosLinks
                                         voorbeeld1 = pygame.transform.flip(voorbeeld1,True,False)
                                         voorbeeld2 = pygame.transform.flip(voorbeeld2,True,False)
                                         pygame.mixer.Sound.play(audio4)
@@ -153,7 +154,6 @@ while True:
                                 voorbeeld = voorbeeld2
                                 screen.fill(black)
                                 screen.blit(photo, (screen_w/2 - photo.get_width()/2, screen_h/2 - photo.get_height()/2))
-                                voorbeeldPos = voorbeeldPosRechts
                                 screen.blit(voorbeeld, voorbeeldPos)
                                 screen.blit(uitvoeringText, (screen_w-uitvoeringText.get_width() ,screen_h-(screen_h/22)-uitvoeringText.get_height()))
                                 pygame.display.update()                                

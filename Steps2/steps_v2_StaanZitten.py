@@ -33,7 +33,7 @@ black = (0,0,0)
 
 #aanpasbare variable
 xStep = screen_w/250        #bij 100 -> 1.4 sec      bij 150 -> 2.2 sec       bij 200 -> 3 sec
-sT = 0.18
+sT = 0.1
 aantal_uitvoeringen = 10
 
 #groene balk onderaan
